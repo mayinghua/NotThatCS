@@ -11,15 +11,6 @@
 儿童习得语言的资料TED记录：单词的诞生http://open.163.com/movie/2011/7/E/J/M77TUGO7R_M77TUSJEJ.html
 
 ## 语料库列表
-
-## 样本收集方法
-
-## 语料库加工方法
-
-## 其他相关内容
-
-### 语料库相关网站
-> http://www.cnblogs.com/mo-wang/p/4444858.html
 - 语料库在线 http://www.cncorpus.org/
 - 现代汉语语料库 http://ccl.pku.edu.cn/corpus.asp?item=1
 - 古代汉语语料库 http://ccl.pku.edu.cn/corpus.asp?item=2
@@ -45,4 +36,9 @@
 - babel 汉英平行语料库 http://icl.pku.edu.cn/icl_groups/parallel/default.htm
 - 中国法律法规汉英平行语料库（大陆） http://corpus.zscas.edu.cn/lawcorpus1/index.asp
 - 国家语言资源监测与研究中心 http://www.clr.org.cn/
-- British National Corpus http://www.natcorp.ox.ac.uk/
+
+## 样本收集方法
+
+## 语料库加工方法
+
+## 其他相关内容
