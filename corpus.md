@@ -36,6 +36,9 @@
 - babel 汉英平行语料库 http://icl.pku.edu.cn/icl_groups/parallel/default.htm
 - 中国法律法规汉英平行语料库（大陆） http://corpus.zscas.edu.cn/lawcorpus1/index.asp
 - 国家语言资源监测与研究中心 http://www.clr.org.cn/
+- BCC语料库 http://bcc.blcu.edu.cn/
+- 北外语料库语言学 http://www.bfsu-corpus.org/
+- 美国当代英语语料库 http://corpus.byu.edu/coca/
 
 ## 样本收集方法
 
@@ -253,3 +256,54 @@ NLTK是斯坦福大学开发的处理自然语言的python库，主要包含如�
 			- 卡方检验法比t检验法更适合于刻画二元组的相关性，且能很好识别频繁二元组，但对稀疏二元组不行。  
 			- 对数似然比检验法可用于识别稀疏二元组。  
 			- 对sogou.com的1亿多个中文页面语料库数据进行实验。预处理得搭配候选二元组35万个，自动获取搭配词对5万个。人工验证得多策略融合法效果更好。  
+			
+### NLP开源工具包
+中文词法分析
+THULAC：一个高效的中文词法分析工具包
+http://thulac.thunlp.org/
+包括中文分词、词性标注功能。已经提供C++、Java、Python版本。
+
+中文文本分类
+THUCTC: 一个高效的中文文本分类工具
+http://thuctc.thunlp.org/
+提供高效的中文文本特征提取、分类训练和测试功能。
+
+THUTag: 关键词抽取与社会标签推荐工具包
+https://github.com/YeDeming/THUTag/
+提供关键词抽取、社会标签推荐功能，包括TextRank、ExpandRank、Topical PageRank（TPR）、Tag-LDA、Word Trigger Model、Word Alignment Model等算法。
+
+PLDA / PLDA+: 一个高效的LDA分布式学习工具包
+https://code.google.com/archive/p/plda/
+
+知识表示学习
+知识表示学习工具包
+https://github.com/mrlyk423/relation_extraction
+包括TransE、TransH、TransR、PTransE等算法。
+
+考虑实体描述的知识表示学习算法
+https://github.com/xrb92/DKRL
+
+词表示学习
+跨语言词表示学习算法
+http://nlp.csai.tsinghua.edu.cn/~lzy/src/acl2015_bilingual.html
+
+主题增强的词表示学习算法
+https://github.com/largelymfs/topical_word_embeddings
+
+可解释的词表示学习算法
+https://github.com/SkTim/OIWE
+
+考虑字的词表示学习算法
+https://github.com/Leonard-Xu/CWE
+
+网络表示学习
+文本增强的网络表示学习算法
+https://github.com/albertyang33/TADW
+
+Natural Language Toolkit
+http://www.nltk.org/
+
+哈工大LTP：http://ir.hit.edu.cn/
+
+### 深度学习与自然语言处理
+http://cs224d.stanford.edu/
