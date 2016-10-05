@@ -305,5 +305,3 @@ http://www.nltk.org/
 
 哈工大LTP：http://ir.hit.edu.cn/
 
-### 深度学习与自然语言处理
-http://cs224d.stanford.edu/
