@@ -345,33 +345,25 @@ http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=14&CurRec=25&recid=&filename
 关于语料库开发的工具介绍：
 1. 索引工具 
 　　索引（Concordance）是呈现检索项和其共现语境的一种方式。检索项由词或短语以及词性赋码标记、通配符（wildcard）和正则表达式（regular expression）等构成。索引行可以按各种条件排序，常见的方法是按中心词左边或右边第N个词的字母顺序排序。研究者可对索引行数据做进一步分析，如搭配、类连接等，发现语言中反复出现的现象，从而揭示人们使用语言的模式（pattern）。
-　　1.1  BFSU索引工具简介
-   • BFSU Collocator：搭配分析工具。搭配词是指在一定跨距内出现在节点词周围的词语，为了更好地研究节点词和搭配词间的意义关系，研究者可以利用各种统计算法计算两者间的搭配强度以排除搭配词中出现的高频功能词如“the”、“of”等。英语学习者可以通过搭配了解单词的典型用法，加深对词汇意义的理解。 BFSU Collocator提供MI、MI3、Z-Score、T-Score、Log-log和Log-likelihood等六种统计算法计算搭配强度，研究者可以根据具体研究问题选择合适的算法进行搭配研究。
-   • BFSU Colligator：类连接分析工具。类连接是语法层面的搭配，包括语法类别之间以及词和语法类别之间的共现关系。研究者可以通过BFSU Colligator编写正则表达式，研究词类之间以及节点词与其周围词类间的关系。具体用法可参看许家金、熊文新（2009）。
-   • BFSU CQPweb：基于网络的第四代语料库分析工具，能生成语料库词表、进行索引行分析、搭配计算和主题词分析。BFSU CQPweb采用了索引技术（indexing）提高了检索结果的响应时间，并可按照语料库中的各种元信息呈现检索结果。该平台目前已加载了多种语料库供用户免费使用，使研究者通过浏览器就可进行基于语料库的各种研究，降低了语料库语言学研究的技术门槛。BFSU CQPweb的网址为http://111.200.194.212/cqp/ ，具体用法可参看许家金、吴良平（待刊）。
-   BFSU CQPweb在线检索平台
-   网址http://111.200.194.212/cqp/
- 
-   • BFSU PatCount：BFSU PatCount用于统计文本中各种语言特征的出现频率，全面支持正则表达式及批量检索。研究者有时需要同时从文本中提取多种语言特征，比如Biber（1998）的多因素分析需要提取文本中的67种语言特征进行因子分析，如果逐一检索过于繁琐，而PatCount可以将67个检索式写入文本文件中，一次就可完成任务。输出结果以矩阵形式排列，每行为语言特征，每列为文本名称，便于后续进行因子分析。具体用法可参看梁茂成、熊文新（2008）。
+   BFSU Collocator：搭配分析工具。搭配词是指在一定跨距内出现在节点词周围的词语，为了更好地研究节点词和搭配词间的意义关系，研究者可以利用各种统计算法计算两者间的搭配强度以排除搭配词中出现的高频功能词如“the”、“of”等。英语学习者可以通过搭配了解单词的典型用法，加深对词汇意义的理解。 BFSU Collocator提供MI、MI3、Z-Score、T-Score、Log-log和Log-likelihood等六种统计算法计算搭配强度，研究者可以根据具体研究问题选择合适的算法进行搭配研究。
+   BFSU Colligator：类连接分析工具。类连接是语法层面的搭配，包括语法类别之间以及词和语法类别之间的共现关系。研究者可以通过BFSU Colligator编写正则表达式，研究词类之间以及节点词与其周围词类间的关系。具体用法可参看许家金、熊文新（2009）。
+   BFSU CQPweb：基于网络的第四代语料库分析工具，能生成语料库词表、进行索引行分析、搭配计算和主题词分析。BFSU CQPweb采用了索引技术（indexing）提高了检索结果的响应时间，并可按照语料库中的各种元信息呈现检索结果。该平台目前已加载了多种语料库供用户免费使用，使研究者通过浏览器就可进行基于语料库的各种研究，降低了语料库语言学研究的技术门槛。BFSU CQPweb的网址为http://111.200.194.212/cqp/ ，具体用法可参看许家金、吴良平（待刊）。
+   BFSU CQPweb在线检索平台 网址http://111.200.194.212/cqp/
+   BFSU PatCount：BFSU PatCount用于统计文本中各种语言特征的出现频率，全面支持正则表达式及批量检索。研究者有时需要同时从文本中提取多种语言特征，比如Biber（1998）的多因素分析需要提取文本中的67种语言特征进行因子分析，如果逐一检索过于繁琐，而PatCount可以将67个检索式写入文本文件中，一次就可完成任务。输出结果以矩阵形式排列，每行为语言特征，每列为文本名称，便于后续进行因子分析。具体用法可参看梁茂成、熊文新（2008）。
    ConcSampler & Concordance Randomizer ：在语料库研究中，研究者经常要面对成千上万条索引行，Sinclair（1999）建议每次随机抽取30条记录进行观察，总结其中的规律，然后再抽取30条记录，以此类推，直到无法观察到新的模式为止。BFSU开发的这两款工具可以帮助研究者或教师完成随机提取索引行的任务。
    
 2. 标注工具 
 标注是给语料库增添信息的过程，McEnery & Hardie（2012：29-31）认为可以把这些信息分为三类： 
-（1）元信息（Metadata）。如书面语中的文本类型（新闻、小说等）；口语中说活人的特征（性别、年龄等）。 
-（2）文本信息（Textual Mark-up）。如书面语中的段落、句子；口语中的停顿、重复等。 
-（3）语言学信息（Linguistic Annotation）。如单词的词性、句子的结构和功能等。 
+  （1）元信息（Metadata）。如书面语中的文本类型（新闻、小说等）；口语中说活人的特征（性别、年龄等）。 
+  （2）文本信息（Textual Mark-up）。如书面语中的段落、句子；口语中的停顿、重复等。 
+  （3）语言学信息（Linguistic Annotation）。如单词的词性、句子的结构和功能等。 
 研究者根据上述三种标注类型可以从语料库中提取相应的信息开展研究，如女性和男性在口语中使用形容词的异同。
-　　2.1  BFSU标注工具简介
    Metadata Encoder：元信息标注工具。可以在书面语语料库中添加文本作者、作者国籍和出版年代等信息；在口语语料库中添加说活人性别、年龄和社会地位等信息。用户可以在Metadata Encoder的配置文件中自行添加元信息的类别如<sex>、<age>等，然后在软件中针对每个类别进行标注，添加的信息会以下列格式保存在文本文件中：
 　　<sex>female</sex>
 　　<age>22</age>
    研究者可以根据文本中的元信息从语料库中提取某一类型的文本（如年龄在18-25之间的女性话语），建立子语料库（参看下面 Sub-corpus Creator的介绍）开展研究。
-   研究者可以根据文本中的元信息从语料库中提取某一类型的文本（如年龄在18-25之间的女性话语），建立子语料库（参看下面 Sub-corpus Creator的介绍）开展研究。
-   
    TreeTagger for Windows 2.0：TreeTagger是德国斯图加特大学Helmut Schmid开发的一款自动词性标注软件，采用宾州树库符码集（http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/Penn-Treebank-Tagset.pdf）。TreeTagger for Windows 2.0是其图形界面，支持英语、德语、法语、意大利语等四种语言的词性标注，同时还支持词形还原（lemmatization）功能。下面是该软件对句子“The cuisine of Xinjiang reflects the region's many ethnic groups and refers particularly to Uyghur cuisine.”的标注结果（用户可与下文BFSU Stanford POS Tagger的标注结果相比较发现两者符码的异同）：The_DT cuisine_NN of_IN Xinjiang_NP reflects_VVZ the_DT region_NN 's_POS many_JJ ethnic_JJ groups_NNS and_CC refers_VVZ particularly_RB to_TO Uyghur_NP cuisine_NN ._SENT
- 
    BFSU Stanford POS Tagger 1.0：Stanford POS Tagger是斯坦福大学自然语言处理小组开发的一款词性自动标注软件，采用宾州树库符码集（Marcus等：1993），符码准确率可达到96.97%（http://nlp.stanford.edu/software/pos-tagger-faq.shtml）。BFSU Stanford POS Tagger是其图形界面，它降低了原软件的操作难度，用户无需在命令行中输入命令和参数就可对文本进行符码。运行该软件前需安装JAVA虚拟机（http://www.java.com/en/download/）。下面是该软件对句子“The cuisine of Xinjiang reflects the region's many ethnic groups and refers particularly to Uyghur cuisine.”的标注结果（用户可与上文TreeTagger for Windows的标注结果相比较发现两者符码的异同）：The_DT cuisine_NN of_IN Xinjiang_NNP reflects_VBZ the_DT region_NN 's_POS many_JJ ethnic_JJ groups_NNS and_CC refers_VBZ particularly_RB to_TO Uyghur_NNP cuisine_NN ._.
- 
    BFSU Stanford Parser 1.0：Stanford Parser是斯坦福大学自然语言处理小组开发的一款句法自动切分软件，可以切分句子的短语结构（Phrase Structure）和依存关系（Dependency Relation）。BFSU Stanford Parser 1.0是其图形界面，它降低了原软件的操作难度，用户无需在命令行中输入命令和参数就可对文本进行句法切分。利用该软件对句子“The cuisine of Xinjiang reflects the region's many ethnic groups and refers particularly to Uyghur cuisine.”进行句法切分后可以输出以下两种格式：
 　 （1）括号格式的短语结构。其中NP、VP和PP分别代表名称短语、动词短语和介词短语：(ROOT
 　　(S
@@ -404,21 +396,15 @@ http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=14&CurRec=25&recid=&filename
 　　advmod(refers-13, particularly-14)
 　　nn(cuisine-17, Uyghur-16)
 　　prep_to(refers-13, cuisine-17)
- 
    BFSU Qualitative Coder 1.0 & BFSU Qualitative Explorer：在语法、语义和语用等层面的许多语言现象无法通过软件自动标注，如对话中言语行为（dialogue act）的种类（请求、疑问赞同等）、小说中人物话语和思想的呈现方式（直接应用、间接应用等）以及与某一语言特征如情态动词共现的其它语言特征，如主语的生命度（有灵、无灵主语），后续实义动词的语义种类（状态、过程动词等）、所在句子的类型（陈述句、疑问句等），都需要手工进行标注。研究者可以利用BFSU Qualitative Coder自行设定语言现象的种类，在文本中进行手工标注。标注完成后可以用BFSU Qualitative Explorer统计各种语言现象出现的频率。
    
 3. 文本处理工具 
-   3.1  BFSU文本处理工具简介
    BFSU Sentence Segmenter 1.0：我们通常以逗号、句号、问号和感叹号等标点符号作为英文句子间的分界点，但如果采取上述方法进行自动分句的话会将一些缩略词的词尾（如Dr.、Mrs.、Ph.等）误判为句子结尾，造成切分错误。BFSU Sentence Segmenter支持用户自定义缩略词表，可以通过扩充缩略词表提高句子切分的准确率。
- 
    Sub-corpus Creator：该软件利用语料库中的文本名称以及文本中的元信息建立研究者所需的子语料库。如CROWN语料库中以A、B、C开头的文件代表新闻语体，研究者可以用(A|B|C)\S+\.txt这一正则表达式选定这类文本。同时该软件还可以选择文本内容，如研究介绍中国的新闻报道可以在文本内容中输入表达式china|chinese。
- 
    Readability Analyzer 1.0：通过对文本平均词长、平均句长、形符/类符比等特征的统计计算英文文本的易读性。
    
 4. 数据驱动学习工具
    数据驱动学习（Data-driven Learning）是指老师和学生通过检索语料库、分析索引行的方法教授/学习二语/外语的过程。这一方法强调学生的主动性，鼓励他们通过“发现式”的学习方法归纳语言在真实语境下的使用规律。
-   4.1  BFSU数据驱动学习工具简介
    BFSU Sentence Collector 1.0：用于英语教学的索引工具，内置大学英语教材语料库（http://www.corpus4u.org/forum/showthread.php?t=3217）与四级词表。与上文介绍的索引工具不同的是其呈现方式为含有检索词的整句；另外用户可以根据句子长度和句子中的新词数（未出现在四级词表中的单词）来筛选例句。该工具支持正则表达式检索，如输入as \S+ as可以检索出含有as well as、as much as等短语的例句。
- 
    BFSU NewWord Marker 1.0：新词标记工具。根据用户指定的基准词表（如四、六级词表）输出特定文本中含有新词的句子，每句后列出未出现于词表中的新词以及该句所在的文件名称。进行新词标记前用户可以用BFSU Sentence Segmenter 1.0先对文本进行分句
 
