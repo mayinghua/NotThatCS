@@ -344,7 +344,7 @@ http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=14&CurRec=25&recid=&filename
 
 关于语料库开发的工具介绍：
 1. 索引工具 
-　　索引（Concordance）是呈现检索项和其共现语境的一种方式。检索项由词或短语以及词性赋码标记、通配符（wildcard）和正则表达式（regular expression）等构成。索引行可以按各种条件排序，常见的方法是按中心词左边或右边第N个词的字母顺序排序。研究者可对索引行数据做进一步分析，如搭配、类连接等，发现语言中反复出现的现象，从而揭示人们使用语言的模式（pattern）。
+   索引（Concordance）是呈现检索项和其共现语境的一种方式。检索项由词或短语以及词性赋码标记、通配符（wildcard）和正则表达式（regular expression）等构成。索引行可以按各种条件排序，常见的方法是按中心词左边或右边第N个词的字母顺序排序。研究者可对索引行数据做进一步分析，如搭配、类连接等，发现语言中反复出现的现象，从而揭示人们使用语言的模式（pattern）。
    BFSU Collocator：搭配分析工具。搭配词是指在一定跨距内出现在节点词周围的词语，为了更好地研究节点词和搭配词间的意义关系，研究者可以利用各种统计算法计算两者间的搭配强度以排除搭配词中出现的高频功能词如“the”、“of”等。英语学习者可以通过搭配了解单词的典型用法，加深对词汇意义的理解。 BFSU Collocator提供MI、MI3、Z-Score、T-Score、Log-log和Log-likelihood等六种统计算法计算搭配强度，研究者可以根据具体研究问题选择合适的算法进行搭配研究。
    BFSU Colligator：类连接分析工具。类连接是语法层面的搭配，包括语法类别之间以及词和语法类别之间的共现关系。研究者可以通过BFSU Colligator编写正则表达式，研究词类之间以及节点词与其周围词类间的关系。具体用法可参看许家金、熊文新（2009）。
    BFSU CQPweb：基于网络的第四代语料库分析工具，能生成语料库词表、进行索引行分析、搭配计算和主题词分析。BFSU CQPweb采用了索引技术（indexing）提高了检索结果的响应时间，并可按照语料库中的各种元信息呈现检索结果。该平台目前已加载了多种语料库供用户免费使用，使研究者通过浏览器就可进行基于语料库的各种研究，降低了语料库语言学研究的技术门槛。BFSU CQPweb的网址为http://111.200.194.212/cqp/ ，具体用法可参看许家金、吴良平（待刊）。
@@ -353,49 +353,20 @@ http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=14&CurRec=25&recid=&filename
    ConcSampler & Concordance Randomizer ：在语料库研究中，研究者经常要面对成千上万条索引行，Sinclair（1999）建议每次随机抽取30条记录进行观察，总结其中的规律，然后再抽取30条记录，以此类推，直到无法观察到新的模式为止。BFSU开发的这两款工具可以帮助研究者或教师完成随机提取索引行的任务。
    
 2. 标注工具 
-标注是给语料库增添信息的过程，McEnery & Hardie（2012：29-31）认为可以把这些信息分为三类： 
+   标注是给语料库增添信息的过程，McEnery & Hardie（2012：29-31）认为可以把这些信息分为三类： 
   （1）元信息（Metadata）。如书面语中的文本类型（新闻、小说等）；口语中说活人的特征（性别、年龄等）。 
   （2）文本信息（Textual Mark-up）。如书面语中的段落、句子；口语中的停顿、重复等。 
   （3）语言学信息（Linguistic Annotation）。如单词的词性、句子的结构和功能等。 
-研究者根据上述三种标注类型可以从语料库中提取相应的信息开展研究，如女性和男性在口语中使用形容词的异同。
+   研究者根据上述三种标注类型可以从语料库中提取相应的信息开展研究，如女性和男性在口语中使用形容词的异同。
    Metadata Encoder：元信息标注工具。可以在书面语语料库中添加文本作者、作者国籍和出版年代等信息；在口语语料库中添加说活人性别、年龄和社会地位等信息。用户可以在Metadata Encoder的配置文件中自行添加元信息的类别如<sex>、<age>等，然后在软件中针对每个类别进行标注，添加的信息会以下列格式保存在文本文件中：
-　　<sex>female</sex>
+   <sex>female</sex>
 　　<age>22</age>
    研究者可以根据文本中的元信息从语料库中提取某一类型的文本（如年龄在18-25之间的女性话语），建立子语料库（参看下面 Sub-corpus Creator的介绍）开展研究。
    TreeTagger for Windows 2.0：TreeTagger是德国斯图加特大学Helmut Schmid开发的一款自动词性标注软件，采用宾州树库符码集（http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/Penn-Treebank-Tagset.pdf）。TreeTagger for Windows 2.0是其图形界面，支持英语、德语、法语、意大利语等四种语言的词性标注，同时还支持词形还原（lemmatization）功能。下面是该软件对句子“The cuisine of Xinjiang reflects the region's many ethnic groups and refers particularly to Uyghur cuisine.”的标注结果（用户可与下文BFSU Stanford POS Tagger的标注结果相比较发现两者符码的异同）：The_DT cuisine_NN of_IN Xinjiang_NP reflects_VVZ the_DT region_NN 's_POS many_JJ ethnic_JJ groups_NNS and_CC refers_VVZ particularly_RB to_TO Uyghur_NP cuisine_NN ._SENT
    BFSU Stanford POS Tagger 1.0：Stanford POS Tagger是斯坦福大学自然语言处理小组开发的一款词性自动标注软件，采用宾州树库符码集（Marcus等：1993），符码准确率可达到96.97%（http://nlp.stanford.edu/software/pos-tagger-faq.shtml）。BFSU Stanford POS Tagger是其图形界面，它降低了原软件的操作难度，用户无需在命令行中输入命令和参数就可对文本进行符码。运行该软件前需安装JAVA虚拟机（http://www.java.com/en/download/）。下面是该软件对句子“The cuisine of Xinjiang reflects the region's many ethnic groups and refers particularly to Uyghur cuisine.”的标注结果（用户可与上文TreeTagger for Windows的标注结果相比较发现两者符码的异同）：The_DT cuisine_NN of_IN Xinjiang_NNP reflects_VBZ the_DT region_NN 's_POS many_JJ ethnic_JJ groups_NNS and_CC refers_VBZ particularly_RB to_TO Uyghur_NNP cuisine_NN ._.
    BFSU Stanford Parser 1.0：Stanford Parser是斯坦福大学自然语言处理小组开发的一款句法自动切分软件，可以切分句子的短语结构（Phrase Structure）和依存关系（Dependency Relation）。BFSU Stanford Parser 1.0是其图形界面，它降低了原软件的操作难度，用户无需在命令行中输入命令和参数就可对文本进行句法切分。利用该软件对句子“The cuisine of Xinjiang reflects the region's many ethnic groups and refers particularly to Uyghur cuisine.”进行句法切分后可以输出以下两种格式：
-　 （1）括号格式的短语结构。其中NP、VP和PP分别代表名称短语、动词短语和介词短语：(ROOT
-　　(S
-　　(NP
-　　(NP (DT The) (NN cuisine))
-　　(PP (IN of)
-　　(NP (NNP Xinjiang))))
-　　(VP
-　　(VP (VBZ reflects)
-　　(NP
-　　(NP (DT the) (NN region) (POS 's))
-　　(JJ many) (JJ ethnic) (NNS groups)))
-　　(CC and)
-　　(VP (VBZ refers)
-　　(ADVP (RB particularly))
-　　(PP (TO to)
-　　(NP (NNP Uyghur) (NN cuisine)))))
-　　(. .)))
-  （2）依存关系。其中det表示限定词与名词之间的关系；nsubj表示句子主语与谓语间的关系。其它依存关系可参考de Marneffe & Manning（2008）：
-　　det(cuisine-2, The-1)
-　　nsubj(reflects-5, cuisine-2)
-　　nsubj(refers-13, cuisine-2)
-　　prep_of(cuisine-2, Xinjiang-4)
-　　det(region-7, the-6)
-　　poss(groups-11, region-7)
-　　amod(groups-11, many-9)
-　　amod(groups-11, ethnic-10)
-　　dobj(reflects-5, groups-11)
-　　conj_and(reflects-5, refers-13)
-　　advmod(refers-13, particularly-14)
-　　nn(cuisine-17, Uyghur-16)
-　　prep_to(refers-13, cuisine-17)
+   (1）括号格式的短语结构。其中NP、VP和PP分别代表名称短语、动词短语和介词短语
+   (2）依存关系。其中det表示限定词与名词之间的关系；nsubj表示句子主语与谓语间的关系。其它依存关系可参考de Marneffe & Manning（2008）
    BFSU Qualitative Coder 1.0 & BFSU Qualitative Explorer：在语法、语义和语用等层面的许多语言现象无法通过软件自动标注，如对话中言语行为（dialogue act）的种类（请求、疑问赞同等）、小说中人物话语和思想的呈现方式（直接应用、间接应用等）以及与某一语言特征如情态动词共现的其它语言特征，如主语的生命度（有灵、无灵主语），后续实义动词的语义种类（状态、过程动词等）、所在句子的类型（陈述句、疑问句等），都需要手工进行标注。研究者可以利用BFSU Qualitative Coder自行设定语言现象的种类，在文本中进行手工标注。标注完成后可以用BFSU Qualitative Explorer统计各种语言现象出现的频率。
    
 3. 文本处理工具 
