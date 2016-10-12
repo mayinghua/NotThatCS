@@ -1,5 +1,4 @@
 
-
 #  语义
 
 ## 语义相关的英文词汇
@@ -16,7 +15,38 @@ convolutional neural network ：卷积神经网络
 ## 语义的范畴
 
 ## 语义分析有哪些
-###文本语义分析
+### 文本语义分析
+文本处理的基本方法构成了语义分析的基础
+
+一个文本串除了分词，还需要做词性标注，命名实体识别，新词发现等。通常有两种方案，一种是pipeline approaches，就是先分词，再做词性标注；另一种是joint approaches，就是把这些任务用一个模型来完成。
+    
+#### 文本基本处理
+
+##### 1.1中文分词
+
+* 基于字符串匹配的分词方法。此方法按照不同的扫描方式，逐个查找词库进行分词。根据扫描方式可细分为：正向最大匹配，反向最大匹配，双向最大匹配，最小切分(即最短路径)；总之就是各种不同的启发规则。
+* 全切分方法。它首先切分出与词库匹配的所有可能的词，再运用统计语言模型决定最优的切分结果。它的优点在于可以解决分词中的歧义问题。对于文本串“南京市长江大桥”，首先进行词条检索(一般用Trie存储)，找到匹配的所有词条（南京，市，长江，大桥，南京市，长江大桥，市长，江大桥，江大，桥），以词网格(word lattices)形式表示，接着做路径搜索，基于统计语言模型找到最优路径，最后可能还需要命名实体识别。下图中“南京市 长江 大桥”的语言模型得分，即P(南京市，长江，大桥)最高，则为最优切分。* 由字构词的分词方法。可以理解为字的分类问题，也就是自然语言处理中的sequence labeling问题，通常做法里利用HMM，MAXENT，MEMM，CRF等预测文本串每个字的tag，譬如B，E，I，S，这四个tag分别表示：beginning, inside, ending, single，也就是一个词的开始，中间，结束，以及单个字的词。 例如“南京市长江大桥”的标注结果可能为：“南(B)京(I)市(E)长(B)江(E)大(B)桥(E)”。由于CRF既可以像最大熵模型一样加各种领域feature，又避免了HMM的齐次马尔科夫假设，所以基于CRF的分词目前是效果最好的。除了HMM，CRF等模型，分词也可以基于深度学习方法来做。
+
+参考文献：[斯坦福课程-语言模型] (http://52opencourse.com/111/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%AC%E5%9B%9B%E8%AF%BE-%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%88language-modeling%EF%BC%89)
+
+##### 1.2Term Weighting
+对文本分词后，接下来需要对分词后的每个term计算一个权重，重要的term应该给与更高的权重。Term weighting在文本检索，文本相关性，核心词提取等任务中都有重要作用。
+
+利用有监督机器学习方法来预测weight。这里类似于机器学习的分类任务，对于文本串的每个term，预测一个[0,1]的得分，得分越大则term重要性越高。既然是有监督学习，那么就需要训练数据。如果采用人工标注的话，极大耗费人力，所以可以采用训练数据自提取的方法，利用程序从搜索日志里自动挖掘。从海量日志数据里提取隐含的用户对于term重要性的标注，得到的训练数据将综合亿级用户的“标注结果”，覆盖面更广，且来自于真实搜索数据，训练结果与标注的目标集分布接近，训练数据更精确。
+
+* 从搜索session数据里提取训练数据，用户在一个检索会话中的检索核心意图是不变的，提取出核心意图所对应的term，其重要性就高。
+* 从历史短串关系资源库里提取训练数据，短串扩展关系中，一个term出现的次数越多，则越重要。
+* 从搜索广告点击日志里提取训练数据，query与bidword共有term的点击率越高，它在query中的重要程度就越高。
+
+参考文献：[Deep learning for Chinese word segmentation and POS tagging]( http://www.aclweb.org/anthology/D13-1061)
+
+[Max-margin tensor neural network for chinese word segmentation]( http://aclweb.org/anthology/P14-1028)
+
+[Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data](http://repository.upenn.edu/cgi/viewcontent.cgi?article=1162&context=cis_papers)
+
+[Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data](http://repository.upenn.edu/cgi/viewcontent.cgi?article=1162&context=cis_papers)
+
+[Chinese Segmentation and New Word Detection using Conditional Random Fields](http://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1091&context=cs_faculty_pubs)
 
 
 ## 语义如何表达
