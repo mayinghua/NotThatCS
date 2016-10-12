@@ -7,7 +7,7 @@ semantics ： 语义学
 
 semantic atom  : 语义原子
 
-semantic componentlal analysis 语义成分分析
+semantic componentlal analysis : 语义成分分析
 
 semantic field : 语义场
 
