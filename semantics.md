@@ -72,9 +72,7 @@ word2vec&doc2vec具体训练过程参考：[文本深度表示模型——word2v
 * 文本表示+向量表示 http://blog.sina.com.cn/s/blog_795b865e0102v984.html
 * Deep Learning in NLP （一）词向量和语言模型 http://blog.csdn.net/zhoubl668/article/details/23271225 
 
-
-
-语言模型
+#语言模型
 
 语言模型是用来计算一个句子产生概率的概率模型，即P(w_1,w_2,w_3…w_m)，m表示词的总个数。根据贝叶斯公式：P(w_1,w_2,w_3 … w_m) = P(w_1)P(w_2|w_1)P(w_3|w_1,w_2) … P(w_m|w_1,w_2 … w_{m-1})。
 
