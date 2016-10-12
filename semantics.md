@@ -11,6 +11,8 @@ semantic componentlal analysis : 语义成分分析
 
 semantic field : 语义场
 
+convolutional neural network ：卷积神经网络
+
 ## 语义的范畴
 
 ## 语义分析有哪些
