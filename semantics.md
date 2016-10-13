@@ -50,6 +50,15 @@ convolutional neural network ：卷积神经网络
 
 [Chinese Segmentation and New Word Detection using Conditional Random Fields](http://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1091&context=cs_faculty_pubs)
 
+### 对于不同层次的处理对象，都需要语义分析：
+ - 对于“词”：
+   - 词义消歧：判断一个词是不是多义词，对多义词不同含义的表示和判别，结合上下文判断多义词在当前环境下的意思。（方法：根据词典释义、基于语义定义、利用语料库）
+ - 对于“句子”：
+   - 语义角色标注：识别句子中各词的作用，特别是围绕句中的“动词”识别句中相关成分（谓词-论元结构）。（方法：利用语料库）
+ - 对于“篇章”：
+   - 指代消解：确定文章中的代词是指的哪个名词。
+   - 篇章语义整合：把篇章片段的语义正确整合，得到篇章的全局意图。（方法：基于句法，利用语料库）
+ - 可以看到语义分析常常利用语料库（例如pdtb这样的带有标注的熟语料库），使用包括统计、机器学习等方法。
 
 ## 语义如何表达
 
