@@ -244,3 +244,17 @@ PLSA和LDA是两种比较流行的主题模型。概率潜语义分析(Probabili
 6. 语义角色标注结果
 
 参考资料：《统计自然语言处理.宗成庆》
+
+### 基于语义分析的情感挖掘
+细粒度的文本情感挖掘是近年来数据挖掘和自然语言处理领域的热门研究，它需要挖掘出文本中每个评价对象的情感倾向性。随着电子商务飞速发展，商品评论中的情感倾向性分析逐渐成为当前的研究热点。它的研究目的是利用网络上丰富的顾客评论资源进行商品的市场反馈分析，为生产商和消费者提供直观的针对商品各个特性的网络评价报告。不仅如此，情感分析还可以对网络上的各种信息，特别是主观性文本，进行倾向性分析，从而更好地理解用户的消费习惯，分析热点事件的舆情，为企业、政府等机构提供重要的决策依据。
+
+#### 情感词典与情感语料库
+情感词是研究文本情感分析的基础。情感词典研究主要分为情感词获取、情感词极性判定及量化计算、情感词的存储管理等工作。现阶段的情感词获取工作主要通过现有情感词典及语料库资源进行抽取，或者利用这些资源直接派生出面向具体应用的情感词典。极性强度量化计算是对情感词的情感倾向值进行计算，由于情感词的情感倾向值对上层应用中的情感分析、情感统计工作影响越来越大，所以目前也吸引了不少学者进行研究。总的来说，目前的情感词典研究更多集中在情感词的褒贬分类上，而其情感倾向值往往通过人工标注得出，量化计算方法研究相对缺乏。
+
+文本情感语料库的建设相比情感词典起步较晚。由于情感分析任务的特殊性，现有的文本情感语料库基本都是面向领域的。领域语料库有原始语料素材库的标注语料库。语料库的标注程度和精确度直接影响情感倾向分析结果的准确度。
+
+#### 文本主观性分类
+在通常的网络文本中，存在大量的客观性文本和主观性文本。客观性文本是一种不带有感情色彩的对个人、事物或事件的一种客观性描述，而主观性文本主要描述作者对事物、人物、事件等的想法或看法。主观性文本是文本情感分析的主要对象，因此对大量的网络文本事先进行主客观文本识别非常重要，这能够有效地缩小分析范围、减少干扰。主观性文本识别主要以情感词为主，利用各种文本特征表示方法和分类器进行分类识别，其根本问题在于分类特征的选取。
+
+参考：[基于语义分析的评价对象-情感词对抽取](http://www.cnki.net/KCMS/detail/11.1826.tp.20160124.2010.008.html?uid=WEEvREcwSlJHSldRa1FhcEE0L01SbTNuU1V6NUVRekdXK2JUZEthNEVCOD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MDQ4MDNCZHJHNEg5Zk1ybzFCWk9zTVl3OU16bVJuNmo1N1QzZmxxV00wQ0xMN1I3cWVZZWR2RnlIbFc3cklJMTA9THo3)
+[细粒度情感分析研究](http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=8&CurRec=8&recid=&filename=1013230177.nh&dbname=CDFD1214&dbcode=CDFD&pr=&urlid=&yx=&uid=WEEvREcwSlJHSldRa1FhcEE0L01SbTNuU1V6NUVRekdXK2JUZEthNEVCOD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MjYwODhaK2RuRnlEblc3ck5WRjI2SGJHN0h0RExxSkViUElSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVJMeWU=)
