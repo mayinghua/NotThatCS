@@ -142,6 +142,64 @@ word2vec&doc2vec具体训练过程参考：[文本深度表示模型——word2v
 * 文本表示+向量表示 http://blog.sina.com.cn/s/blog_795b865e0102v984.html
 * Deep Learning in NLP （一）词向量和语言模型 http://blog.csdn.net/zhoubl668/article/details/23271225 
 
+## 词向量，句向量
+
+### 词向量是什么
+
+  在文本分析的vector space model中，是用向量来描述一个词的，譬如最常见的One-hot representation。One-hot representation方法的一个明显的缺点是，词与词之间没有建立关联。在深度学习中，一般用Distributed Representation来描述一个词，常被称为“Word Representation”或“Word Embedding”，也就是我们俗称的“词向量”。
+
+  词向量起源于hinton在1986年的论文[1]，后来在Bengio的ffnnlm论文[2]中，被发扬光大，但它真正被我们所熟知，应该是word2vec[3]的开源。在ffnnlm中，词向量是训练语言模型的一个副产品，不过在word2vec里，是专门来训练词向量，所以word2vec相比于ffnnlm的区别主要体现在：
+
+  模型更加简单，去掉了ffnnlm中的隐藏层，并去掉了输入层跳过隐藏层直接到输出层的连接。
+  训练语言模型是利用第m个词的前n个词预测第m个词，而训练词向量是用其前后各n个词来预测第m个词，这样做真正利用了上下文来预测。
+
+  word2vec的两种训练算法：CBOW(continuous bag-of-words)和Skip-gram。在cbow方法里，训练目标是给定一个word的context，预测word的概率；在skip-gram方法里，训练目标则是给定一个word，预测word的context的概率。
+
+  关于word2vec，在算法上还有较多可以学习的地方，例如利用huffman编码做层次softmax，negative sampling，工程上也有很多trick，具体请参考文章[4][5]。
+
+### 词向量的应用
+
+#### 词向量的应用点：
+
+可以挖掘词之间的关系，譬如同义词。
+  可以将词向量作为特征应用到其他机器学习任务中，例如作为文本分类的feature，Ronan collobert在Senna[6]中将词向量用于POS, CHK, NER等任务。
+  用于机器翻译[7]。分别训练两种语言的词向量，再通过词向量空间中的矩阵变换，将一种语言转变成另一种语言。
+  word analogy，即已知a之于b犹如c之于d，现在给出 a、b、c，C(a)-C(b)+C(c)约等于C(d)，C(*)表示词向量。可以利用这个特性，提取词语之间的层次关系。
+  Connecting Images and Sentences，image understanding。例如文献，DeViSE: A deep visual-semantic em-bedding model。
+  Entity completion in Incomplete Knowledge bases or ontologies，即relational extraction。Reasoning with neural tensor net- works for knowledge base completion。
+  
+  除了产生词向量，word2vec还有很多其他应用领域，对此我们需要把握两个概念：doc和word。在词向量训练中，doc指的是一篇篇文章，word就是文章中的词。
+
+  假设我们将一簇簇相似的用户作为doc（譬如QQ群），将单个用户作为word，我们则可以训练user distributed representation，可以借此挖掘相似用户。
+  假设我们将一个个query session作为doc，将query作为word，我们则可以训练query distributed representation，挖掘相似query。
+
+### 句向量
+
+  分析完word distributed representation，我们也许会问，phrase，sentence是否也有其distributed representation。最直观的思路，对于phrase和sentence，我们将组成它们的所有word对应的词向量加起来，作为短语向量，句向量。在参考文献中，验证了将词向量加起来的确是一个有效的方法，但事实上还有更好的做法。
+
+  Le和Mikolov在文章《Distributed Representations of Sentences and Documents》[8]里介绍了sentence vector，这里我们也做下简要分析。
+
+  先看c-bow方法，相比于word2vec的c-bow模型，区别点有：
+
+  训练过程中新增了paragraph id，即训练语料中每个句子都有一个唯一的id。paragraph id和普通的word一样，也是先映射成一个向量，即paragraph vector。paragraph vector与word vector的维数虽一样，但是来自于两个不同的向量空间。在之后的计算里，paragraph vector和word vector累加或者连接起来，作为输出层softmax的输入。在一个句子或者文档的训练过程中，paragraph id保持不变，共享着同一个paragraph vector，相当于每次在预测单词的概率时，都利用了整个句子的语义。
+  在预测阶段，给待预测的句子新分配一个paragraph id，词向量和输出层softmax的参数保持训练阶段得到的参数不变，重新利用梯度下降训练待预测的句子。待收敛后，即得到待预测句子的paragraph vector。
+
+### 词向量的改进
+
+  学习词向量的方法主要分为：Global matrix factorization和Shallow Window-Based。Global matrix factorization方法主要利用了全局词共现，例如LSA；Shallow Window-Based方法则主要基于local context window，即局部词共现，word2vec是其中的代表；Jeffrey Pennington在word2vec之后提出了GloVe，它声称结合了上述两种方法，提升了词向量的学习效果。
+  目前通过词向量可以充分发掘出“一义多词”的情况，譬如“快递”与“速递”；但对于“一词多义”，束手无策，譬如“苹果”(既可以表示苹果手机、电脑，又可以表示水果)，此时我们需要用多个词向量来表示多义词。
+
+参考文献：
+[1] Learning distributed representations of concepts
+ http://www.cogsci.ucsd.edu/~ajyu/Teaching/Cogs202_sp12/Readings/hinton86.pdf
+[2] A neural probabilistic language model 2003 http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf
+[3] word2vec https://code.google.com/p/word2vec/
+[4] Deep Learning实战之word2vec http://techblog.youdao.com/?p=915
+[5] word2vec中的数学原理详解 http://suanfazu.com/t/word2vec-zhong-de-shu-xue-yuan-li-xiang-jie-duo-tu-wifixia-yue-du/178
+[6] Senna http://ml.nec-labs.com/senna
+[7] Exploting similarities among language for machine translation http://arxiv.org/pdf/1309.4168.pdf
+[8] Distributed Representations of Sentences and Documents http://arxiv.org/pdf/1405.4053v2.pdf
+
 #语言模型
 
 语言模型是用来计算一个句子产生概率的概率模型，即P(w_1,w_2,w_3…w_m)，m表示词的总个数。根据贝叶斯公式：P(w_1,w_2,w_3 … w_m) = P(w_1)P(w_2|w_1)P(w_3|w_1,w_2) … P(w_m|w_1,w_2 … w_{m-1})。
